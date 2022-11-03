@@ -19,7 +19,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'docker-registry'
-        repository: 'kousikm/hello_rest_api'
+        repository: 'ywg-github/hello_rest_api'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
@@ -53,4 +53,4 @@ stages:
         kubernetesServiceConnection: 'k8s-service-connection'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/configuration/k8s/deployment.yaml'
-        containers: 'kousikm/hello_rest_api:$(tag)'
+        containers: 'ywg-github/hello_rest_api:$(tag)'
